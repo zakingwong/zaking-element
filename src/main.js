@@ -1,11 +1,12 @@
+import "@/assets/common/global.scss";
+import "@/assets/fonts/icon.scss";
 import Vue from "vue";
 import App from "./App.vue";
-import { components } from "./register";
+import zaking_element from "./register";
 import router from "./router";
 import store from "./store";
-components.forEach((component) => {
-  Vue.component(component.name, component);
-});
+
+Vue.use(zaking_element);
 Vue.config.productionTip = false;
 
 new Vue({

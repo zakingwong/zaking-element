@@ -99,6 +99,7 @@ body {
   padding: 10px;
   border: 1px solid #87d;
   flex: 1;
+  overflow: scroll;
 }
 .nav-item-link {
   width: 100%;
