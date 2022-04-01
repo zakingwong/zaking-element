@@ -3,10 +3,11 @@
     <div class="header">复刻element源码，讲解核心细节。</div>
     <div class="content">
       <div class="left-nav">
-        <ul class="nav-corver">
+        <ul class="nav-corver" v-for="item in routerConfig" :key="item.name">
+          <div class="nav-title">{{ item.name }}</div>
           <li
             :class="['nav-item', item.active ? 'active' : '']"
-            v-for="item in routerConfig"
+            v-for="item in item.route"
             :key="item.name"
             @click="changeActive(item)"
           >
@@ -28,7 +29,16 @@ export default {
   name: "App",
   data() {
     return {
-      routerConfig: [{ path: "/alert", name: "Alert", active: false }],
+      routerConfig: [
+        {
+          name: "Basic",
+          route: [{ path: "/container", name: "Container", active: false }],
+        },
+        {
+          name: "Notice",
+          route: [{ path: "/alert", name: "Alert", active: false }],
+        },
+      ],
       storageActive: null,
     };
   },
@@ -72,6 +82,8 @@ body {
 .left-nav {
   width: 150px;
   height: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
   overflow: scroll;
 }
 .nav-corver {
