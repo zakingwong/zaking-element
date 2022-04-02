@@ -32,7 +32,10 @@ export default {
       routerConfig: [
         {
           name: "Basic",
-          route: [{ path: "/container", name: "Container", active: false }],
+          route: [
+            { path: "/container", name: "Container", active: false },
+            { path: "/layout", name: "Layout", active: false },
+          ],
         },
         {
           name: "Notice",

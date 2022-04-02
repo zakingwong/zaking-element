@@ -27,6 +27,12 @@ const routes = [
         /* webpackChunkName: "container" */ "../views/container/index.vue"
       ),
   },
+  {
+    path: "/layout",
+    name: "Layout",
+    component: () =>
+      import(/* webpackChunkName: "layout" */ "../views/layout/index.vue"),
+  },
 ];
 
 const router = new VueRouter({
