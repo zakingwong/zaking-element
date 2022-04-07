@@ -1,96 +1,94 @@
-import { createVue, destroyVM } from "../util";
+import { enableAutoDestroy } from "@vue/test-utils";
+import { createVue } from "../util";
+enableAutoDestroy(afterEach);
 
 describe("Col", () => {
   let vm;
-  afterEach(() => {
-    destroyVM(vm);
-  });
 
   it("create", () => {
     vm = createVue(
       {
         template: `
-        <el-col :span="12">
-        </el-col>
+        <z-col :span="12">
+        </z-col>
       `,
       },
       true
     );
-    let colElm = vm.$el;
-    expect(colElm.classList.contains("el-col")).to.be.true;
+    expect(vm.classes()).toContain("z-col");
   });
   it("span", () => {
     vm = createVue(
       {
         template: `
-        <el-col :span="12">
-        </el-col>
+        <z-col :span="12">
+        </z-col>
       `,
       },
       true
     );
-    let colElm = vm.$el;
-    expect(colElm.classList.contains("el-col-12")).to.be.true;
+    expect(vm.classes()).toContain("z-col-12");
   });
   it("pull", () => {
     vm = createVue(
       {
         template: `
-        <el-col :span="12" :pull="3">
-        </el-col>
+        <z-col :span="12" :pull="3">
+        </z-col>
       `,
       },
       true
     );
-    let colElm = vm.$el;
-    expect(colElm.classList.contains("el-col-pull-3")).to.be.true;
+    expect(vm.classes()).toContain("z-col-pull-3");
   });
   it("push", () => {
     vm = createVue(
       {
         template: `
-        <el-col :span="12" :push="3">
-        </el-col>
+        <z-col :span="12" :push="3">
+        </z-col>
       `,
       },
       true
     );
-    let colElm = vm.$el;
-    expect(colElm.classList.contains("el-col-push-3")).to.be.true;
+    expect(vm.classes()).toContain("z-col-push-3");
   });
   it("gutter", () => {
     vm = createVue(
       {
         template: `
-        <el-row :gutter="20">
-          <el-col :span="12" ref="col">
-          </el-col>
-        </el-row>
+        <z-row :gutter="20">
+          <z-col :span="12" ref="col">
+          </z-col>
+        </z-row>
       `,
       },
       true
     );
-    let colElm = vm.$refs.col.$el;
-    expect(colElm.style.paddingLeft === "10px").to.be.true;
-    expect(colElm.style.paddingRight === "10px").to.be.true;
+    expect(vm.findComponent({ ref: "col" }).attributes().style).toBe(
+      "padding-left: 10px; padding-right: 10px;"
+    );
   });
   it("responsive", () => {
     vm = createVue(
       {
         template: `
-        <el-row :gutter="20">
-          <el-col ref="col" :sm="{ span: 4, offset: 2 }" :md="8" :lg="{ span: 6, offset: 3 }">
-          </el-col>
-        </el-row>
+        <z-row :gutter="20">
+          <z-col ref="col" :sm="{ span: 4, offset: 2 }" :md="8" :lg="{ span: 6, offset: 3 }">
+          </z-col>
+        </z-row>
       `,
       },
       true
     );
-    let colElm = vm.$refs.col.$el;
-    expect(colElm.classList.contains("el-col-sm-4")).to.be.true;
-    expect(colElm.classList.contains("el-col-sm-offset-2")).to.be.true;
-    expect(colElm.classList.contains("el-col-lg-6")).to.be.true;
-    expect(colElm.classList.contains("el-col-lg-offset-3")).to.be.true;
-    expect(colElm.classList.contains("el-col-md-8")).to.be.true;
+    expect(vm.findComponent({ ref: "col" }).classes()).toContain("z-col-sm-4");
+    expect(vm.findComponent({ ref: "col" }).classes()).toContain(
+      "z-col-sm-offset-2"
+    );
+    expect(vm.findComponent({ ref: "col" }).classes()).toContain("z-col-lg-6");
+    expect(vm.findComponent({ ref: "col" }).classes()).toContain(
+      "z-col-lg-offset-3"
+    );
+    expect(vm.findComponent({ ref: "col" }).classes()).toContain("z-col-md-8");
   });
 });

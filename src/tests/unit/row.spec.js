@@ -1,16 +1,14 @@
+import { enableAutoDestroy } from "@vue/test-utils";
 import Row from "../../components/row";
-import { createTest, destroyVM } from "../util";
+import { createTest } from "../util";
+enableAutoDestroy(afterEach);
 
 describe("Row", () => {
   let vm;
-  afterEach(() => {
-    destroyVM(vm);
-  });
 
   it("create", () => {
     vm = createTest(Row, true);
-    let rowElm = vm.$el;
-    expect(rowElm.classList.contains("el-row")).to.be.true;
+    expect(vm.classes()).toContain("z-row");
   });
   it("gutter", () => {
     vm = createTest(
@@ -20,9 +18,9 @@ describe("Row", () => {
       },
       true
     );
-    let rowElm = vm.$el;
-    expect(rowElm.style.marginLeft).to.be.equal("-10px");
-    expect(rowElm.style.marginRight).to.be.equal("-10px");
+    expect(vm.attributes().style).toBe(
+      "margin-left: -10px; margin-right: -10px;"
+    );
   });
   it("type", () => {
     vm = createTest(
@@ -32,8 +30,7 @@ describe("Row", () => {
       },
       true
     );
-    let rowElm = vm.$el;
-    expect(rowElm.classList.contains("el-row--flex")).to.be.true;
+    expect(vm.classes()).toContain("z-row--flex");
   });
   it("justify", () => {
     vm = createTest(
@@ -43,8 +40,7 @@ describe("Row", () => {
       },
       true
     );
-    let rowElm = vm.$el;
-    expect(rowElm.classList.contains("is-justify-end")).to.be.true;
+    expect(vm.classes()).toContain("is-justify-end");
   });
   it("align", () => {
     vm = createTest(
@@ -54,7 +50,6 @@ describe("Row", () => {
       },
       true
     );
-    let rowElm = vm.$el;
-    expect(rowElm.classList.contains("is-align-bottom")).to.be.true;
+    expect(vm.classes()).toContain("is-align-bottom");
   });
 });
