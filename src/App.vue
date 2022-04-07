@@ -41,7 +41,7 @@ export default {
         },
         {
           name: "Notice",
-          route: [{ path: "/alert", name: "Alert", active: false }],
+          route: [{ path: "/alert", name: "1.Alert", active: false }],
         },
       ],
       storageActive: null,
