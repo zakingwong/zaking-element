@@ -1,5 +1,7 @@
 import ZAlert from "./components/alert/index.js";
 import ZAside from "./components/aside/index.js";
+import ZButtonGroup from "./components/button-group/index.js";
+import ZButton from "./components/button/index.js";
 import ZCol from "./components/col/index.js";
 import ZContainer from "./components/container/index.js";
 import ZFooter from "./components/footer/index.js";
@@ -18,6 +20,8 @@ const components = [
   ZRow,
   ZCol,
   ZLink,
+  ZButton,
+  ZButtonGroup,
 ];
 
 const install = function (Vue) {

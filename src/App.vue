@@ -33,9 +33,10 @@ export default {
         {
           name: "Basic",
           route: [
-            { path: "/container", name: "Container", active: false },
-            { path: "/layout", name: "Layout", active: false },
-            { path: "/link", name: "Link", active: false },
+            { path: "/container", name: "1.Container", active: false },
+            { path: "/layout", name: "2.Layout", active: false },
+            { path: "/link", name: "3.Link", active: false },
+            { path: "/button", name: "4.Button", active: false },
           ],
         },
         {
