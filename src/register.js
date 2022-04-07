@@ -4,6 +4,7 @@ import ZCol from "./components/col/index.js";
 import ZContainer from "./components/container/index.js";
 import ZFooter from "./components/footer/index.js";
 import ZHeader from "./components/header/index.js";
+import ZLink from "./components/link/index.js";
 import ZMain from "./components/main/index.js";
 import ZRow from "./components/row/index.js";
 
@@ -16,6 +17,7 @@ const components = [
   ZMain,
   ZRow,
   ZCol,
+  ZLink,
 ];
 
 const install = function (Vue) {

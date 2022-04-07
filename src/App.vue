@@ -35,6 +35,7 @@ export default {
           route: [
             { path: "/container", name: "Container", active: false },
             { path: "/layout", name: "Layout", active: false },
+            { path: "/link", name: "Link", active: false },
           ],
         },
         {
