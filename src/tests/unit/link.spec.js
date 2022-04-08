@@ -1,7 +1,7 @@
 import { enableAutoDestroy } from "@vue/test-utils";
+import sinon from "sinon";
 import Link from "../../components/link";
 import { createTest, createVue } from "../util";
-
 enableAutoDestroy(afterEach);
 
 describe("Link", () => {
@@ -56,22 +56,21 @@ describe("Link", () => {
     expect(vm.classes()).toContain("is-disabled");
   });
 
-  // it("click", async () => {
-  //   let result;
-  //   vm = createVue(
-  //     {
-  //       template: `
-  //       <z-link @click="handleClick"></z-link>
-  //     `,
-  //       methods: {
-  //         handleClick(evt) {
-  //           result = evt;
-  //         },
-  //       },
-  //     },
-  //     true
-  //   );
-  //   await vm.trigger("click");
-  //   expect(result).any(Object);
-  // });
+  it("click", async () => {
+    const spy = sinon.spy();
+    vm = createVue(
+      {
+        template: `
+        <z-link @click="handleClick"></z-link>
+      `,
+        methods: {
+          handleClick: spy,
+        },
+      },
+      true
+    );
+    await vm.trigger("click");
+    console.log(vm.emitted("click"), "vm.emitted()");
+    expect(vm.emitted().length).toBe(1);
+  });
 });
