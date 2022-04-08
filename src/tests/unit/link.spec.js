@@ -1,5 +1,4 @@
 import { enableAutoDestroy } from "@vue/test-utils";
-import sinon from "sinon";
 import Link from "../../components/link";
 import { createTest, createVue } from "../util";
 enableAutoDestroy(afterEach);
@@ -57,20 +56,19 @@ describe("Link", () => {
   });
 
   it("click", async () => {
-    const spy = sinon.spy();
+    const onClick = jest.fn();
     vm = createVue(
       {
         template: `
         <z-link @click="handleClick"></z-link>
       `,
         methods: {
-          handleClick: spy,
+          handleClick: onClick,
         },
       },
       true
     );
     await vm.trigger("click");
-    console.log(vm.emitted("click"), "vm.emitted()");
-    expect(vm.emitted().length).toBe(1);
+    expect(onClick).toHaveBeenCalled();
   });
 });

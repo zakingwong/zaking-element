@@ -98,71 +98,64 @@ describe("Button", () => {
     expect(wrapper.classes()).toContain("is-circle");
   });
   it("click", (done) => {
-    let result;
+    const onClick = jest.fn();
+
     wrapper = createVue(
       {
         template: `
-        <el-button @click="handleClick"></el-button>
+        <z-button @click="handleClick"></z-button>
       `,
         methods: {
-          handleClick(evt) {
-            result = evt;
-          },
+          handleClick: onClick,
         },
       },
       true
     );
-    wrapper.vm.$el.click();
+    wrapper.trigger("click");
 
     setTimeout(() => {
-      expect(result).to.exist;
+      expect(onClick).toHaveBeenCalled();
       done();
     }, 20);
   });
 
-  // it("click inside", (done) => {
-  //   let result;
-  //   vm = createVue(
-  //     {
-  //       template: `
-  //       <el-button @click="handleClick"><span class="inner-slot"></span></el-button>
-  //     `,
-  //       methods: {
-  //         handleClick(evt) {
-  //           result = evt;
-  //         },
-  //       },
-  //     },
-  //     true
-  //   );
-  //   vm.$el.querySelector(".inner-slot").click();
+  it("click inside", (done) => {
+    const onClick = jest.fn();
+    wrapper = createVue(
+      {
+        template: `
+        <z-button @click="handleClick"><span class="inner-slot"></span></z-button>
+      `,
+        methods: {
+          handleClick: onClick,
+        },
+      },
+      true
+    );
+    wrapper.get(".inner-slot").trigger("click");
+    setTimeout(() => {
+      expect(onClick).toHaveBeenCalled();
+      done();
+    }, 20);
+  });
 
-  //   setTimeout(() => {
-  //     expect(result).to.exist;
-  //     done();
-  //   }, 20);
-  // });
-
-  // it("loading implies disabled", (done) => {
-  //   let result;
-  //   vm = createVue(
-  //     {
-  //       template: `
-  //       <el-button loading @click="handleClick"><span class="inner-slot"></span></el-button>
-  //     `,
-  //       methods: {
-  //         handleClick(evt) {
-  //           result = evt;
-  //         },
-  //       },
-  //     },
-  //     true
-  //   );
-  //   vm.$el.querySelector(".inner-slot").click();
-
-  //   setTimeout(() => {
-  //     expect(result).to.not.exist;
-  //     done();
-  //   }, 20);
-  // });
+  it("loading implies disabled", (done) => {
+    const onClick = jest.fn();
+    wrapper = createVue(
+      {
+        template: `
+        <z-button loading @click="handleClick"><span class="inner-slot"></span></z-button>
+      `,
+        methods: {
+          handleClick: onClick,
+        },
+      },
+      true
+    );
+    wrapper.get(".inner-slot").trigger("click");
+    setTimeout(() => {
+      expect(onClick).toHaveBeenCalled();
+      done();
+    }, 20);
+  });
 });
