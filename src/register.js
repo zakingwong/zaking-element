@@ -7,9 +7,9 @@ import ZContainer from "./components/container/index.js";
 import ZFooter from "./components/footer/index.js";
 import ZHeader from "./components/header/index.js";
 import ZLink from "./components/link/index.js";
+import Loading from "./components/loading/index.js";
 import ZMain from "./components/main/index.js";
 import ZRow from "./components/row/index.js";
-
 const components = [
   ZAlert,
   ZContainer,
@@ -28,5 +28,7 @@ const install = function (Vue) {
   components.forEach((component) => {
     Vue.component(component.name, component);
   });
+  Vue.use(Loading.directive);
+  Vue.prototype.$loading = Loading.service;
 };
 export default { install, ...components };
