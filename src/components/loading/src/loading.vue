@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     handleAfterLeave() {
+      console.log("handleAfterLeave");
       this.$emit("after-leave");
     },
     setText(text) {

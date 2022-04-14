@@ -10,15 +10,7 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  {
-    path: "/alert",
-    name: "Alert",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "alert" */ "../views/alert/index.vue"),
-  },
+  // Basic
   {
     path: "/container",
     name: "Container",
@@ -45,11 +37,24 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "button" */ "../views/button/index.vue"),
   },
+  // Notice
+  {
+    path: "/alert",
+    name: "Alert",
+    component: () =>
+      import(/* webpackChunkName: "alert" */ "../views/alert/index.vue"),
+  },
   {
     path: "/loading",
     name: "Loading",
     component: () =>
       import(/* webpackChunkName: "loading" */ "../views/loading/index.vue"),
+  },
+  {
+    path: "/message",
+    name: "Message",
+    component: () =>
+      import(/* webpackChunkName: "message" */ "../views/message/index.vue"),
   },
 ];
 

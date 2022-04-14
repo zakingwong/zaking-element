@@ -9,7 +9,9 @@ import ZHeader from "./components/header/index.js";
 import ZLink from "./components/link/index.js";
 import Loading from "./components/loading/index.js";
 import ZMain from "./components/main/index.js";
+import Message from "./components/message/index.js";
 import ZRow from "./components/row/index.js";
+
 const components = [
   ZAlert,
   ZContainer,
@@ -30,5 +32,6 @@ const install = function (Vue) {
   });
   Vue.use(Loading.directive);
   Vue.prototype.$loading = Loading.service;
+  Vue.prototype.$message = Message;
 };
 export default { install, ...components };

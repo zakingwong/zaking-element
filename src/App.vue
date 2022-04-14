@@ -44,6 +44,7 @@ export default {
           route: [
             { path: "/alert", name: "1.Alert", active: false },
             { path: "/loading", name: "2.Loading", active: false },
+            { path: "/message", name: "3.Message", active: false },
           ],
         },
       ],
