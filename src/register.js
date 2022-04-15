@@ -1,29 +1,32 @@
-import ZAlert from "./components/alert/index.js";
-import ZAside from "./components/aside/index.js";
-import ZButtonGroup from "./components/button-group/index.js";
-import ZButton from "./components/button/index.js";
-import ZCol from "./components/col/index.js";
-import ZContainer from "./components/container/index.js";
-import ZFooter from "./components/footer/index.js";
-import ZHeader from "./components/header/index.js";
-import ZLink from "./components/link/index.js";
+import Alert from "./components/alert/index.js";
+import Aside from "./components/aside/index.js";
+import ButtonGroup from "./components/button-group/index.js";
+import Button from "./components/button/index.js";
+import Col from "./components/col/index.js";
+import Container from "./components/container/index.js";
+import Footer from "./components/footer/index.js";
+import Header from "./components/header/index.js";
+import Link from "./components/link/index.js";
 import Loading from "./components/loading/index.js";
-import ZMain from "./components/main/index.js";
+import Main from "./components/main/index.js";
+import MessageBox from "./components/message-box/index.js";
 import Message from "./components/message/index.js";
-import ZRow from "./components/row/index.js";
+import Row from "./components/row/index.js";
 
 const components = [
-  ZAlert,
-  ZContainer,
-  ZFooter,
-  ZHeader,
-  ZAside,
-  ZMain,
-  ZRow,
-  ZCol,
-  ZLink,
-  ZButton,
-  ZButtonGroup,
+  Alert,
+  Container,
+  Footer,
+  Header,
+  Aside,
+  Main,
+  Row,
+  Col,
+  Link,
+  Button,
+  ButtonGroup,
+  Message,
+  MessageBox,
 ];
 
 const install = function (Vue) {
@@ -33,5 +36,10 @@ const install = function (Vue) {
   Vue.use(Loading.directive);
   Vue.prototype.$loading = Loading.service;
   Vue.prototype.$message = Message;
+
+  Vue.prototype.$msgbox = MessageBox;
+  Vue.prototype.$alert = MessageBox.alert;
+  Vue.prototype.$confirm = MessageBox.confirm;
+  Vue.prototype.$prompt = MessageBox.prompt;
 };
 export default { install, ...components };

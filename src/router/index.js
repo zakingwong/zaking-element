@@ -56,6 +56,14 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "message" */ "../views/message/index.vue"),
   },
+  {
+    path: "/messageBox",
+    name: "MessageBox",
+    component: () =>
+      import(
+        /* webpackChunkName: "message" */ "../views/message-box/index.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({
