@@ -61,7 +61,15 @@ const routes = [
     name: "MessageBox",
     component: () =>
       import(
-        /* webpackChunkName: "message" */ "../views/message-box/index.vue"
+        /* webpackChunkName: "message-box" */ "../views/message-box/index.vue"
+      ),
+  },
+  {
+    path: "/notification",
+    name: "Notification",
+    component: () =>
+      import(
+        /* webpackChunkName: "message" */ "../views/notification/index.vue"
       ),
   },
 ];

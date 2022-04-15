@@ -46,6 +46,7 @@ export default {
             { path: "/loading", name: "2.Loading", active: false },
             { path: "/message", name: "3.Message", active: false },
             { path: "/messageBox", name: "4.MessageBox", active: false },
+            { path: "/notification", name: "5.Notification", active: false },
           ],
         },
       ],

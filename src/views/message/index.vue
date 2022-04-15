@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-demo">
+  <div class="message-demo">
     <div class="example-header">1、基础用法：</div>
     <div class="example-content">
       <z-button :plain="true" @click="open">打开消息提示</z-button>

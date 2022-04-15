@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-demo">
+  <div class="message-box-demo">
     <div class="example-header">1、消息提示</div>
     <div class="example-content">
       <z-button type="text" @click="open">点击打开 Message Box</z-button>

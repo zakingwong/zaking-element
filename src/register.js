@@ -11,8 +11,8 @@ import Loading from "./components/loading/index.js";
 import Main from "./components/main/index.js";
 import MessageBox from "./components/message-box/index.js";
 import Message from "./components/message/index.js";
+import Notification from "./components/notification/index.js";
 import Row from "./components/row/index.js";
-
 const components = [
   Alert,
   Container,
@@ -27,6 +27,7 @@ const components = [
   ButtonGroup,
   Message,
   MessageBox,
+  Notification,
 ];
 
 const install = function (Vue) {
@@ -41,5 +42,7 @@ const install = function (Vue) {
   Vue.prototype.$alert = MessageBox.alert;
   Vue.prototype.$confirm = MessageBox.confirm;
   Vue.prototype.$prompt = MessageBox.prompt;
+
+  Vue.prototype.$notify = Notification;
 };
 export default { install, ...components };
