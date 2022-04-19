@@ -12,7 +12,11 @@ import Main from "./components/main/index.js";
 import MessageBox from "./components/message-box/index.js";
 import Message from "./components/message/index.js";
 import Notification from "./components/notification/index.js";
+import RadioButton from "./components/radio-button/index.js";
+import RadioGroup from "./components/radio-group/index.js";
+import Radio from "./components/radio/index.js";
 import Row from "./components/row/index.js";
+
 const components = [
   Alert,
   Container,
@@ -28,6 +32,9 @@ const components = [
   Message,
   MessageBox,
   Notification,
+  Radio,
+  RadioButton,
+  RadioGroup,
 ];
 
 const install = function (Vue) {

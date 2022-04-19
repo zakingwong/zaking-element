@@ -72,6 +72,12 @@ const routes = [
         /* webpackChunkName: "message" */ "../views/notification/index.vue"
       ),
   },
+  {
+    path: "/radio",
+    name: "Radio",
+    component: () =>
+      import(/* webpackChunkName: "radio" */ "../views/radio/index.vue"),
+  },
 ];
 
 const router = new VueRouter({

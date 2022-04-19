@@ -49,6 +49,10 @@ export default {
             { path: "/notification", name: "5.Notification", active: false },
           ],
         },
+        {
+          name: "Form",
+          route: [{ path: "/radio", name: "1.Radio", active: false }],
+        },
       ],
       storageActive: null,
     };
