@@ -51,7 +51,10 @@ export default {
         },
         {
           name: "Form",
-          route: [{ path: "/radio", name: "1.Radio", active: false }],
+          route: [
+            { path: "/radio", name: "1.Radio", active: false },
+            { path: "/checkbox", name: "2.Checkbox", active: false },
+          ],
         },
       ],
       storageActive: null,

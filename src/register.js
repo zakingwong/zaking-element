@@ -2,6 +2,9 @@ import Alert from "./components/alert/index.js";
 import Aside from "./components/aside/index.js";
 import ButtonGroup from "./components/button-group/index.js";
 import Button from "./components/button/index.js";
+import CheckboxButton from "./components/checkbox-button/index.js";
+import CheckboxGroup from "./components/checkbox-group/index.js";
+import Checkbox from "./components/checkbox/index.js";
 import Col from "./components/col/index.js";
 import Container from "./components/container/index.js";
 import Footer from "./components/footer/index.js";
@@ -35,6 +38,9 @@ const components = [
   Radio,
   RadioButton,
   RadioGroup,
+  Checkbox,
+  CheckboxButton,
+  CheckboxGroup,
 ];
 
 const install = function (Vue) {
